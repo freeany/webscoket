@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    哈哈
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // 连接socket服务
+      // 参数：服务器地址
+      var socket = io('http://localhost:3000')
+
+      // 接受服务器返回的数据
+      // socket.on('send', data => {
+      //   console.log(data)
+      // })
+      socket.emit('hehe', { name: 'zs', age: 18 })
+
+      socket.on('send', function(data) {
+        console.log(data)
+      })
+
+      socket.emit('login', { name: 'ls' })
+    </script>
+  </body>
+</html>
